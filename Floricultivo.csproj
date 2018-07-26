@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.10.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +47,9 @@
   <ItemGroup>
     <Compile Include="Capa de control\GradoDia.cs" />
     <Compile Include="Capa de DB\ConexionDB.cs" />
+    <Compile Include="Capa de DB\Dia.cs" />
+    <Compile Include="Capa de DB\Temperatura.cs" />
+    <Compile Include="Capa de DB\TemperaturaServicio.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
