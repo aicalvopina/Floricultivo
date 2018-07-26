@@ -1,6 +1,6 @@
 ﻿namespace Floricultivo
 {
-    partial class Form2
+    partial class frmInformacion
     {
         /// <summary>
         /// Required designer variable.
@@ -34,19 +34,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 23);
+            this.label1.Location = new System.Drawing.Point(30, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
-            // Form2
+            // frmInformacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(221, 143);
             this.Controls.Add(this.label1);
-            this.Name = "Form2";
+            this.Name = "frmInformacion";
             this.Text = "Información";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -10,14 +10,18 @@ using System.Windows.Forms;
 
 namespace Floricultivo
 {
-    public partial class Form2 : Form
+    public partial class frmMain : Form
     {
-        public Form2()
+        frmInformacion form2 = new frmInformacion();
+        public frmMain()
         {
             InitializeComponent();
-            label1.AutoSize = false;
-            label1.Size = new Size(198, 60);
-            label1.Text = "El siguiente programa calcula los grados dia de un cultivo mediante el uso de datos obtenidos de sensores.";
+        }
+
+        private void mOptionInformation_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Hola perros");
+            form2.Show();
         }
 
     }

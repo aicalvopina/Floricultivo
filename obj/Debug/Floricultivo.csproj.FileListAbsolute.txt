@@ -17,3 +17,4 @@ C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.frmMain.res
 C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.Properties.Resources.resources
 C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.csproj.GenerateResource.Cache
 C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.Form2.resources
+C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.frmInformacion.resources
