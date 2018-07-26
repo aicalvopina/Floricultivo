@@ -1,1 +1,9 @@
 c:\users\adrián\documents\visual studio 2013\Projects\Floricultivo\Floricultivo\bin\Debug\Floricultivo.exe.config
+C:\Users\Adrián\documents\visual studio 2013\Projects\Floricultivo\Floricultivo\bin\Debug\Floricultivo.exe
+C:\Users\Adrián\documents\visual studio 2013\Projects\Floricultivo\Floricultivo\bin\Debug\Floricultivo.pdb
+C:\Users\Adrián\documents\visual studio 2013\Projects\Floricultivo\Floricultivo\obj\Debug\Floricultivo.csprojResolveAssemblyReference.cache
+C:\Users\Adrián\documents\visual studio 2013\Projects\Floricultivo\Floricultivo\obj\Debug\Floricultivo.Form1.resources
+C:\Users\Adrián\documents\visual studio 2013\Projects\Floricultivo\Floricultivo\obj\Debug\Floricultivo.Properties.Resources.resources
+C:\Users\Adrián\documents\visual studio 2013\Projects\Floricultivo\Floricultivo\obj\Debug\Floricultivo.csproj.GenerateResource.Cache
+C:\Users\Adrián\documents\visual studio 2013\Projects\Floricultivo\Floricultivo\obj\Debug\Floricultivo.exe
+C:\Users\Adrián\documents\visual studio 2013\Projects\Floricultivo\Floricultivo\obj\Debug\Floricultivo.pdb
