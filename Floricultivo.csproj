@@ -48,6 +48,7 @@
     <Compile Include="Capa de control\GradoDia.cs" />
     <Compile Include="Capa de DB\ConexionDB.cs" />
     <Compile Include="Capa de DB\Dia.cs" />
+    <Compile Include="Capa de DB\DiaServicio.cs" />
     <Compile Include="Capa de DB\Temperatura.cs" />
     <Compile Include="Capa de DB\TemperaturaServicio.cs" />
     <Compile Include="frmConexion.cs">
