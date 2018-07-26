@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Floricultivo
 {
-    public partial class Form1 : Form
+    public partial class frmEditar : Form
     {
-        public Form1()
+        public frmEditar()
         {
             InitializeComponent();
         }
