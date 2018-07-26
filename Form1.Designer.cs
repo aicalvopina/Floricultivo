@@ -40,6 +40,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblFecha = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -99,7 +100,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(101, 227);
+            this.button1.Location = new System.Drawing.Point(51, 310);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -108,7 +109,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(258, 227);
+            this.button2.Location = new System.Drawing.Point(262, 310);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -117,8 +118,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.OldLace;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(402, 39);
+            this.dataGridView1.Location = new System.Drawing.Point(402, 57);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(461, 211);
             this.dataGridView1.TabIndex = 4;
@@ -126,13 +128,24 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(13, 28);
+            this.lblFecha.BackColor = System.Drawing.Color.Transparent;
+            this.lblFecha.Font = new System.Drawing.Font("Swis721 Blk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(24, 37);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(42, 13);
+            this.lblFecha.Size = new System.Drawing.Size(51, 16);
             this.lblFecha.TabIndex = 5;
             this.lblFecha.Text = "Fecha";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Swis721 Blk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(24, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Fecha";
             // 
             // frmMain
             // 
@@ -141,6 +154,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(875, 370);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
@@ -169,6 +183,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label label1;
     }
 }
 
