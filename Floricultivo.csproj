@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Capa de control\GradoDia.cs" />
+    <Compile Include="Capa de control\TemperaturaHora.cs" />
     <Compile Include="Capa de DB\ConexionDB.cs" />
     <Compile Include="Capa de DB\Dia.cs" />
     <Compile Include="Capa de DB\Temperatura.cs" />
