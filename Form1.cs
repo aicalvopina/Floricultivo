@@ -17,5 +17,10 @@ namespace Floricultivo
             InitializeComponent();
         }
 
+        private void mOptionInformation_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hola perros");
+        }
+
     }
 }
