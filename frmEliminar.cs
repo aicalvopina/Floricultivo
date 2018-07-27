@@ -16,5 +16,10 @@ namespace Floricultivo
         {
             InitializeComponent();
         }
+
+        private void frmEliminar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
