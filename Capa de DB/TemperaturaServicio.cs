@@ -68,6 +68,34 @@ namespace Floricultivo.Capa_de_DB
                 return null;
             }
         }
+	public List<Temperatura> obtenerPorFecha(DateTime fecha) 
+        {
+            try
+            {
+                List<Temperatura> temperaturas = new List<Temperatura>();
+                conn.crearConexion();
+                query.CommandText = "SELECT temperatura.COD_TEMPERATURA, temperatura.COD_DIA, temperatura.HORA, temperatura.TEMPERATURA FROM floricultivo.temperatura inner join floricultivo.dia on temperatura.COD_DIA = dia.COD_DIA where dia.fecha = "+ fecha.ToString("yyyy-MM-dd H:mm:ss") +";";
+                query.Connection = conn.Conexion;
+                consultar = query.ExecuteReader();
+                while (consultar.Read())
+                {
+		            Temperatura temperatura = new Temperatura();
+                    temperatura.CodTemperatura = consultar.GetInt32("COD_TEMPERATURA");
+                    temperatura.CodDia = consultar.GetInt32("COD_DIA");
+                    temperatura.Hora = consultar.GetDateTime("HORA");
+                    temperatura.TemperaturaGrados = consultar.GetDouble("TEMPERATURA");
+		            temperaturas.Add(temperatura);
+                }
+                conn.cerrarConexion();
+                return temperaturas;
+            }
+            catch (Exception ex) 
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
         public void crearTemperatura(Temperatura temperatura) 
         {
             try

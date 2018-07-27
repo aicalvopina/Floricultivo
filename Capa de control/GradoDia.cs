@@ -9,11 +9,14 @@ namespace Floricultivo.Capa_de_control
 {
     class GradoDia
     {
+
+        private TemperaturaServicio serviceTemp = new TemperaturaServicio();
         //Parametros para el calculo
         private double temperaturaMaxima;
         private double temperaturaMinima;
         private double temperaturaBase;
-        private Temperatura tempHora;
+        private List<Temperatura> tempHora;
+
         //Resultados
         private double gradosDia;
         private double gradosHora;
@@ -27,6 +30,7 @@ namespace Floricultivo.Capa_de_control
 
         private double gradosHoraCalculo()
         {
+            tempHora = serviceTemp.obtenerPorDia(DateTime.Now);
             this.gradosHora = tempHora.TemperaturaGrados - this.temperaturaBase;
             return this.gradosHora;
         }
