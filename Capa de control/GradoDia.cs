@@ -19,19 +19,25 @@ namespace Floricultivo.Capa_de_control
 
         //Resultados
         private double gradosDia;
-        private double gradosHora;
+        private List<double> gradosHora;
 
+        public GradoDia()
+        {
 
+        }
         private double gradosDiaCalculo()
         {
             this.gradosDia = ((this.temperaturaMaxima+this.temperaturaMinima)/2)-this.temperaturaBase;
             return this.gradosDia;
         }
 
-        private double gradosHoraCalculo()
+        private List<double> gradosHoraCalculo(DateTime fecha)
         {
-            tempHora = serviceTemp.obtenerPorDia(DateTime.Now);
-            this.gradosHora = tempHora.TemperaturaGrados - this.temperaturaBase;
+            tempHora = serviceTemp.obtenerPorFecha(fecha);
+            for (int i = 0; i < tempHora.Count; i++ )
+            {
+                this.gradosHora.Add(tempHora[i].TemperaturaGrados - this.temperaturaBase);
+            }
             return this.gradosHora;
         }
 
