@@ -20,8 +20,35 @@ namespace Floricultivo
 
         private void mOptionInformation_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Hola perros");
             form2.Show();
+        }
+
+        private void mOptionUpdate_Click(object sender, EventArgs e)
+        {
+            frmEditar editar = new frmEditar();
+            editar.Show();
+        }
+
+        private void mOptionDelete_Click(object sender, EventArgs e)
+        {
+            frmEliminar eliminar = new frmEliminar();
+            eliminar.Show();
+        }
+
+        private void mOptionSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void mOptionNew_Click(object sender, EventArgs e)
+        {
+            dgvDatos.DataSource = null;
+            dtpDate.Value = DateTime.Today.AddDays(-1);
+        }
+
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
