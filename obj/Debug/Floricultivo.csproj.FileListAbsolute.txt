@@ -19,3 +19,5 @@ C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.csproj.Gene
 C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.Form2.resources
 C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.frmInformacion.resources
 C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.frmConexion.resources
+C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.frmEditar.resources
+C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.frmEliminar.resources
