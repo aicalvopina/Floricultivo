@@ -16,5 +16,30 @@ namespace Floricultivo
         {
             InitializeComponent();
         }
+
+        private void frmEditar_Load(object sender, EventArgs e)
+        {
+            txtHoraAmanecer.Enabled = false;
+            txtHoraMaxTemp.Enabled = false;
+            txtHoraOcaso.Enabled = false;
+            txtTempAmanecer.Enabled = false;
+            txtTempMax.Enabled = false;
+            txtTempOcaso.Enabled = false;
+        }
+
+        private void btnLookFor_Click(object sender, EventArgs e)
+        {
+            txtHoraAmanecer.Enabled = true;
+            txtHoraMaxTemp.Enabled = true;
+            txtHoraOcaso.Enabled = true;
+            txtTempAmanecer.Enabled = true;
+            txtTempMax.Enabled = true;
+            txtTempOcaso.Enabled = true;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

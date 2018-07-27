@@ -32,8 +32,13 @@
             this.menuMain = new System.Windows.Forms.MenuStrip();
             this.mOptionStart = new System.Windows.Forms.ToolStripMenuItem();
             this.mOptionNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.mOptionConectionDB = new System.Windows.Forms.ToolStripMenuItem();
+            this.mOptionNewDB = new System.Windows.Forms.ToolStripMenuItem();
+            this.mOptionUpdateDB = new System.Windows.Forms.ToolStripMenuItem();
             this.mOptionSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.mOptionSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.mOptionDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.mOptionUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.mOptionHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mOptionInformation = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGenerar = new System.Windows.Forms.Button();
@@ -41,12 +46,7 @@
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.lblFecha = new System.Windows.Forms.Label();
             this.grbData = new System.Windows.Forms.GroupBox();
-            this.mOptionEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.mOptionDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.mOptionConectionDB = new System.Windows.Forms.ToolStripMenuItem();
-            this.mOptionNewDB = new System.Windows.Forms.ToolStripMenuItem();
-            this.mOptionUpdateDB = new System.Windows.Forms.ToolStripMenuItem();
-            this.mOptionUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.menuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
@@ -78,22 +78,58 @@
             this.mOptionNew.Name = "mOptionNew";
             this.mOptionNew.Size = new System.Drawing.Size(209, 22);
             this.mOptionNew.Text = "Nueva Consulta";
+            this.mOptionNew.Click += new System.EventHandler(this.mOptionNew_Click);
+            // 
+            // mOptionConectionDB
+            // 
+            this.mOptionConectionDB.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mOptionNewDB,
+            this.mOptionUpdateDB});
+            this.mOptionConectionDB.Name = "mOptionConectionDB";
+            this.mOptionConectionDB.Size = new System.Drawing.Size(209, 22);
+            this.mOptionConectionDB.Text = "Conexión a Base de Datos";
+            // 
+            // mOptionNewDB
+            // 
+            this.mOptionNewDB.Name = "mOptionNewDB";
+            this.mOptionNewDB.Size = new System.Drawing.Size(202, 22);
+            this.mOptionNewDB.Text = "Nueva Base Datos";
+            // 
+            // mOptionUpdateDB
+            // 
+            this.mOptionUpdateDB.Name = "mOptionUpdateDB";
+            this.mOptionUpdateDB.Size = new System.Drawing.Size(202, 22);
+            this.mOptionUpdateDB.Text = "Actualizar Base de Datos";
             // 
             // mOptionSalir
             // 
             this.mOptionSalir.Name = "mOptionSalir";
             this.mOptionSalir.Size = new System.Drawing.Size(209, 22);
             this.mOptionSalir.Text = "Salir";
+            this.mOptionSalir.Click += new System.EventHandler(this.mOptionSalir_Click);
             // 
             // mOptionSettings
             // 
             this.mOptionSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mOptionEdit,
             this.mOptionDelete,
             this.mOptionUpdate});
             this.mOptionSettings.Name = "mOptionSettings";
             this.mOptionSettings.Size = new System.Drawing.Size(95, 20);
             this.mOptionSettings.Text = "Configuracion";
+            // 
+            // mOptionDelete
+            // 
+            this.mOptionDelete.Name = "mOptionDelete";
+            this.mOptionDelete.Size = new System.Drawing.Size(159, 22);
+            this.mOptionDelete.Text = "Eliminar Datos";
+            this.mOptionDelete.Click += new System.EventHandler(this.mOptionDelete_Click);
+            // 
+            // mOptionUpdate
+            // 
+            this.mOptionUpdate.Name = "mOptionUpdate";
+            this.mOptionUpdate.Size = new System.Drawing.Size(159, 22);
+            this.mOptionUpdate.Text = "Actualizar Datos";
+            this.mOptionUpdate.Click += new System.EventHandler(this.mOptionUpdate_Click);
             // 
             // mOptionHelp
             // 
@@ -120,6 +156,7 @@
             this.btnGenerar.TabIndex = 2;
             this.btnGenerar.Text = "Generar Cálculo";
             this.btnGenerar.UseVisualStyleBackColor = true;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
             // btnSalir
             // 
@@ -165,44 +202,12 @@
             this.grbData.TabStop = false;
             this.grbData.Text = "Datos";
             // 
-            // mOptionEdit
+            // dtpDate
             // 
-            this.mOptionEdit.Name = "mOptionEdit";
-            this.mOptionEdit.Size = new System.Drawing.Size(159, 22);
-            this.mOptionEdit.Text = "Editar Datos";
-            // 
-            // mOptionDelete
-            // 
-            this.mOptionDelete.Name = "mOptionDelete";
-            this.mOptionDelete.Size = new System.Drawing.Size(159, 22);
-            this.mOptionDelete.Text = "Eliminar Datos";
-            // 
-            // mOptionConectionDB
-            // 
-            this.mOptionConectionDB.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mOptionNewDB,
-            this.mOptionUpdateDB});
-            this.mOptionConectionDB.Name = "mOptionConectionDB";
-            this.mOptionConectionDB.Size = new System.Drawing.Size(209, 22);
-            this.mOptionConectionDB.Text = "Conexión a Base de Datos";
-            // 
-            // mOptionNewDB
-            // 
-            this.mOptionNewDB.Name = "mOptionNewDB";
-            this.mOptionNewDB.Size = new System.Drawing.Size(202, 22);
-            this.mOptionNewDB.Text = "Nueva Base Datos";
-            // 
-            // mOptionUpdateDB
-            // 
-            this.mOptionUpdateDB.Name = "mOptionUpdateDB";
-            this.mOptionUpdateDB.Size = new System.Drawing.Size(202, 22);
-            this.mOptionUpdateDB.Text = "Actualizar Base de Datos";
-            // 
-            // mOptionUpdate
-            // 
-            this.mOptionUpdate.Name = "mOptionUpdate";
-            this.mOptionUpdate.Size = new System.Drawing.Size(159, 22);
-            this.mOptionUpdate.Text = "Actualizar Datos";
+            this.dtpDate.Location = new System.Drawing.Point(119, 39);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(224, 20);
+            this.dtpDate.TabIndex = 8;
             // 
             // frmMain
             // 
@@ -211,6 +216,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(875, 370);
+            this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.grbData);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.dgvDatos);
@@ -244,9 +250,9 @@
         private System.Windows.Forms.ToolStripMenuItem mOptionConectionDB;
         private System.Windows.Forms.ToolStripMenuItem mOptionNewDB;
         private System.Windows.Forms.ToolStripMenuItem mOptionUpdateDB;
-        private System.Windows.Forms.ToolStripMenuItem mOptionEdit;
         private System.Windows.Forms.ToolStripMenuItem mOptionDelete;
         private System.Windows.Forms.ToolStripMenuItem mOptionUpdate;
+        private System.Windows.Forms.DateTimePicker dtpDate;
     }
 }
 

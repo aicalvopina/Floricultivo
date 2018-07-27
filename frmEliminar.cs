@@ -16,5 +16,28 @@ namespace Floricultivo
         {
             InitializeComponent();
         }
+
+        private void frmEliminar_Load(object sender, EventArgs e)
+        {
+            txtHoraAmanecer.Enabled = false;
+            txtHoraMaxTemp.Enabled = false;
+            txtHoraOcaso.Enabled = false;
+            txtTempAmanecer.Enabled = false;
+            txtTempMax.Enabled = false;
+            txtTempOcaso.Enabled = false;
+        }
+
+        private void btnConnectDB_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnTestConnection_Click(object sender, EventArgs e)
+        {
+            int flag = 0;
+            if (flag == 1) { MessageBox.Show("Esta seguro de eliminar este registro"); }
+            else{ }
+
+        }
     }
 }
