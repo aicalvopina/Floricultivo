@@ -12,26 +12,31 @@ namespace Floricultivo.Capa_de_control
 
         private TemperaturaServicio serviceTemp = new TemperaturaServicio();
         //Parametros para el calculo
-        private double temperaturaMaxima;
-        private double temperaturaMinima;
-        private double temperaturaBase;
+        private double temperaturaMaxima =  0F;
+        private double temperaturaMinima = 0F;
+        private double temperaturaBase = 0F;
         private List<Temperatura> tempHora;
 
+        private DiaServicio diaServ = new DiaServicio();
         //Resultados
         private double gradosDia;
         private List<double> gradosHora;
 
-        public GradoDia()
+        public GradoDia(double tempMx, double tempMin, double tempBase)
         {
+            gradosHora = new List<Double>();
+            this.temperaturaMaxima = tempMx;
+            this.temperaturaMinima = tempMin;
+            this.temperaturaBase = tempBase;
 
         }
-        private double gradosDiaCalculo()
+        public double gradosDiaCalculo()
         {
             this.gradosDia = ((this.temperaturaMaxima+this.temperaturaMinima)/2)-this.temperaturaBase;
             return this.gradosDia;
         }
 
-        private List<double> gradosHoraCalculo(DateTime fecha)
+        public List<double> gradosHoraCalculo(DateTime fecha)
         {
             tempHora = serviceTemp.obtenerPorFecha(fecha);
             for (int i = 0; i < tempHora.Count; i++ )
@@ -41,5 +46,23 @@ namespace Floricultivo.Capa_de_control
             return this.gradosHora;
         }
 
+        public void CrearDia(double horaAmanecer ,double temperaturaAmanecer)
+        {
+            double horaOcaso = horaAmanecer + 12;
+            double horaTemMax = horaOcaso - 4;
+            double temperaturaMaxima = temperaturaAmanecer + 21;
+            double temperaturaOcaso = temperaturaMaxima - 4;
+            Dia dia = new Dia();
+            DateTime horaAux = DateTime.Now;
+            dia.HoraAmanecer = new DateTime(horaAux.Year, horaAux.Month, horaAux.Day, Convert.ToInt32(horaAmanecer), 0, 0);
+            dia.HoraMaxTemperatura = new DateTime(horaAux.Year, horaAux.Month, horaAux.Day, Convert.ToInt32(horaTemMax), 0, 0);
+            dia.HoraOcaso = new DateTime(horaAux.Year, horaAux.Month, horaAux.Day, Convert.ToInt32(horaOcaso), 0, 0);
+            dia.HoraSigDia = dia.HoraAmanecer;
+            dia.TemperaturaAmanecer = temperaturaAmanecer;
+            dia.TemperaturaMaxima = temperaturaMaxima;
+            dia.TemperaturaOcaso = temperaturaOcaso;
+            dia.TemperaturaSigDia = temperaturaAmanecer;
+            diaServ.crearDia(dia);
+        }
     }
 }

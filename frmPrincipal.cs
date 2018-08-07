@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Floricultivo.Capa_de_control;
 
 namespace Floricultivo
 {
     public partial class frmMain : Form
     {
         frmInformacion form2 = new frmInformacion();
+        GradoDia dia;
+        TemperaturaHora tmepHora;
         public frmMain()
         {
             InitializeComponent();
@@ -48,7 +51,11 @@ namespace Floricultivo
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-
+            double horaAmanecer = Convert.ToDouble(txtboxHoraAmanecer.Text);
+            double temperaturaAmanecer = Convert.ToDouble(txtboxTempAmanecer.Text);
+            double temperaturaMaxima = temperaturaAmanecer + 21;
+            dia = new GradoDia(temperaturaMaxima, temperaturaAmanecer, Convert.ToDouble(txtboxTempBase.Text));
+            dia.CrearDia(horaAmanecer, temperaturaAmanecer);
         }
 
     }

@@ -47,8 +47,15 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.grbData = new System.Windows.Forms.GroupBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.txtboxHoraAmanecer = new System.Windows.Forms.TextBox();
+            this.txtboxTempAmanecer = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtboxTempBase = new System.Windows.Forms.TextBox();
             this.menuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
+            this.grbData.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuMain
@@ -142,14 +149,14 @@
             // mOptionInformation
             // 
             this.mOptionInformation.Name = "mOptionInformation";
-            this.mOptionInformation.Size = new System.Drawing.Size(152, 22);
+            this.mOptionInformation.Size = new System.Drawing.Size(139, 22);
             this.mOptionInformation.Text = "Información";
             this.mOptionInformation.Click += new System.EventHandler(this.mOptionInformation_Click);
             // 
             // btnGenerar
             // 
             this.btnGenerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerar.Font = new System.Drawing.Font("Swis721 Blk BT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerar.Location = new System.Drawing.Point(39, 283);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(144, 62);
@@ -161,7 +168,7 @@
             // btnSalir
             // 
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Swis721 Blk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Location = new System.Drawing.Point(240, 283);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(121, 62);
@@ -182,22 +189,28 @@
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.BackColor = System.Drawing.Color.Transparent;
-            this.lblFecha.Font = new System.Drawing.Font("Swis721 Blk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.ForeColor = System.Drawing.Color.LemonChiffon;
             this.lblFecha.Location = new System.Drawing.Point(23, 39);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(62, 19);
+            this.lblFecha.Size = new System.Drawing.Size(54, 20);
             this.lblFecha.TabIndex = 5;
             this.lblFecha.Text = "Fecha";
             // 
             // grbData
             // 
             this.grbData.BackColor = System.Drawing.Color.Transparent;
+            this.grbData.Controls.Add(this.txtboxTempBase);
+            this.grbData.Controls.Add(this.label3);
+            this.grbData.Controls.Add(this.label2);
+            this.grbData.Controls.Add(this.label1);
+            this.grbData.Controls.Add(this.txtboxTempAmanecer);
+            this.grbData.Controls.Add(this.txtboxHoraAmanecer);
             this.grbData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbData.ForeColor = System.Drawing.Color.LemonChiffon;
             this.grbData.Location = new System.Drawing.Point(27, 76);
             this.grbData.Name = "grbData";
-            this.grbData.Size = new System.Drawing.Size(348, 192);
+            this.grbData.Size = new System.Drawing.Size(348, 201);
             this.grbData.TabIndex = 6;
             this.grbData.TabStop = false;
             this.grbData.Text = "Datos";
@@ -208,6 +221,57 @@
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(224, 20);
             this.dtpDate.TabIndex = 8;
+            // 
+            // txtboxHoraAmanecer
+            // 
+            this.txtboxHoraAmanecer.Location = new System.Drawing.Point(234, 28);
+            this.txtboxHoraAmanecer.Name = "txtboxHoraAmanecer";
+            this.txtboxHoraAmanecer.Size = new System.Drawing.Size(100, 22);
+            this.txtboxHoraAmanecer.TabIndex = 0;
+            this.txtboxHoraAmanecer.Text = "6";
+            // 
+            // txtboxTempAmanecer
+            // 
+            this.txtboxTempAmanecer.Location = new System.Drawing.Point(234, 74);
+            this.txtboxTempAmanecer.Name = "txtboxTempAmanecer";
+            this.txtboxTempAmanecer.Size = new System.Drawing.Size(100, 22);
+            this.txtboxTempAmanecer.TabIndex = 1;
+            this.txtboxTempAmanecer.Text = "47";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(115, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Hora amanecer";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(171, 16);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Temperatura Amanecer";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 123);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(137, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Temperatura Base";
+            // 
+            // txtboxTempBase
+            // 
+            this.txtboxTempBase.Location = new System.Drawing.Point(234, 120);
+            this.txtboxTempBase.Name = "txtboxTempBase";
+            this.txtboxTempBase.Size = new System.Drawing.Size(100, 22);
+            this.txtboxTempBase.TabIndex = 5;
+            this.txtboxTempBase.Text = "70";
             // 
             // frmMain
             // 
@@ -228,6 +292,8 @@
             this.menuMain.ResumeLayout(false);
             this.menuMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
+            this.grbData.ResumeLayout(false);
+            this.grbData.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,6 +319,12 @@
         private System.Windows.Forms.ToolStripMenuItem mOptionDelete;
         private System.Windows.Forms.ToolStripMenuItem mOptionUpdate;
         private System.Windows.Forms.DateTimePicker dtpDate;
+        private System.Windows.Forms.TextBox txtboxTempAmanecer;
+        private System.Windows.Forms.TextBox txtboxHoraAmanecer;
+        private System.Windows.Forms.TextBox txtboxTempBase;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
