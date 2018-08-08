@@ -19,6 +19,7 @@ namespace Floricultivo
         public frmMain()
         {
             InitializeComponent();
+
         }
 
         private void mOptionInformation_Click(object sender, EventArgs e)
@@ -54,8 +55,29 @@ namespace Floricultivo
             double horaAmanecer = Convert.ToDouble(txtboxHoraAmanecer.Text);
             double temperaturaAmanecer = Convert.ToDouble(txtboxTempAmanecer.Text);
             double temperaturaMaxima = temperaturaAmanecer + 21;
+            DateTime diasAux = new DateTime(dtpDate.Value.Year, dtpDate.Value.Month, dtpDate.Value.Day);
             dia = new GradoDia(temperaturaMaxima, temperaturaAmanecer, Convert.ToDouble(txtboxTempBase.Text));
-            dia.CrearDia(horaAmanecer, temperaturaAmanecer);
+            dia.crearDia(horaAmanecer, temperaturaAmanecer, diasAux);
+            this.tmepHora = new TemperaturaHora(diasAux);
+            this.tmepHora.guardarTemperaturas(diasAux);
+            List<double> gradosHora = this.dia.gradosHoraCalculo(diasAux);
+
+            this.dgvDatos.ColumnCount = 2;
+            this.dgvDatos.ColumnHeadersVisible = true;
+            this.dgvDatos.Columns[0].Name = "FECHA(dd/mm/aaaa)";
+            this.dgvDatos.Columns[0].Width = 120;
+            this.dgvDatos.Columns[1].Name = "GRADO HORA (F)";
+            this.dgvDatos.Columns[1].Width = 120;
+
+            for (int i = 0 ; i < gradosHora.Count; i++)
+            {
+                this.dgvDatos.Rows.Add(i+":00:00", gradosHora[i]);
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
     }

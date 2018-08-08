@@ -74,7 +74,7 @@ namespace Floricultivo.Capa_de_DB
             {
                 List<Temperatura> temperaturas = new List<Temperatura>();
                 conn.crearConexion();
-                query.CommandText = "SELECT temperatura.COD_TEMPERATURA, temperatura.COD_DIA, temperatura.HORA, temperatura.TEMPERATURA FROM floricultivo.temperatura inner join floricultivo.dia on temperatura.COD_DIA = dia.COD_DIA where dia.fecha = "+ fecha.ToString("yyyy-MM-dd H:mm:ss") +";";
+                query.CommandText = "SELECT temperatura.COD_TEMPERATURA, temperatura.COD_DIA, temperatura.HORA, temperatura.TEMPERATURA FROM floricultivo.temperatura inner join floricultivo.dia on temperatura.COD_DIA = dia.COD_DIA where dia.fecha = '"+ fecha.ToString("yyyy-MM-dd H:mm:ss") +"';";
                 query.Connection = conn.Conexion;
                 consultar = query.ExecuteReader();
                 while (consultar.Read())
@@ -102,7 +102,7 @@ namespace Floricultivo.Capa_de_DB
             {
                 conn.crearConexion();
                 query.CommandText = "insert into floricultivo.temperatura (cod_dia, hora, temperatura) values (" + temperatura.CodDia + ", "
-                    + "'" + temperatura.Hora.ToString("yyyy-MM-dd H:mm:ss") + "', " + temperatura.TemperaturaGrados + ");";
+                    + "'" + temperatura.Hora.ToString("yyyy-MM-dd H:mm:ss") + "', '" + Math.Round(temperatura.TemperaturaGrados,2) + "');";
                 query.Connection = conn.Conexion;
                 query.ExecuteReader();
                 conn.cerrarConexion();

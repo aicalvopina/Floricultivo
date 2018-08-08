@@ -86,7 +86,7 @@ namespace Floricultivo.Capa_de_DB
             {
                 Dia dia = new Dia();
                 conn.crearConexion();
-                query.CommandText = "select * from floricultivo.dia where fecha = " + fecha.ToString("yyyy-MM-dd H:mm:ss") + ";";
+                query.CommandText = "select * from floricultivo.dia where fecha = '" + fecha.ToString("yyyy-MM-dd H:mm:ss") + "';";
                 query.Connection = conn.Conexion;
                 consultar = query.ExecuteReader();
                 while (consultar.Read())
@@ -118,7 +118,7 @@ namespace Floricultivo.Capa_de_DB
                 conn.crearConexion();
                 query.CommandText = "insert into floricultivo.dia (fecha, hora_amanecer, hora_max_temperatura, hora_ocaso, hora_sig_dia, temperatura_amanecer," +
                 " temperatura_maxima, temperatura_ocaso, temperatura_sig_dia) values ('" + dia.Fecha.ToString("yyyy-MM-dd H:mm:ss") + "', '" + dia.HoraAmanecer.ToString("yyyy-MM-dd H:mm:ss")
-                + "', '" + dia.HoraMaxTemperatura.ToString("yyyy-MM-dd H:mm:ss") + ", '" + dia.HoraOcaso.ToString("yyyy-MM-dd H:mm:ss") + "', '" + dia.HoraSigDia.ToString("yyyy-MM-dd H:mm:ss")
+                + "', '" + dia.HoraMaxTemperatura.ToString("yyyy-MM-dd H:mm:ss") + "', '" + dia.HoraOcaso.ToString("yyyy-MM-dd H:mm:ss") + "', '" + dia.HoraSigDia.ToString("yyyy-MM-dd H:mm:ss")
                 + "', " + dia.TemperaturaAmanecer + ", " + dia.TemperaturaMaxima + ", " + dia.TemperaturaOcaso + ", " + dia.TemperaturaSigDia + ");";
                 query.Connection = conn.Conexion;
                 query.ExecuteReader();

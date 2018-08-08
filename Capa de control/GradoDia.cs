@@ -38,6 +38,7 @@ namespace Floricultivo.Capa_de_control
 
         public List<double> gradosHoraCalculo(DateTime fecha)
         {
+            tempHora = new List<Temperatura>();
             tempHora = serviceTemp.obtenerPorFecha(fecha);
             for (int i = 0; i < tempHora.Count; i++ )
             {
@@ -46,7 +47,7 @@ namespace Floricultivo.Capa_de_control
             return this.gradosHora;
         }
 
-        public void CrearDia(double horaAmanecer ,double temperaturaAmanecer)
+        public void crearDia(double horaAmanecer ,double temperaturaAmanecer,DateTime diaEstimar)
         {
             double horaOcaso = horaAmanecer + 12;
             double horaTemMax = horaOcaso - 4;
@@ -54,6 +55,7 @@ namespace Floricultivo.Capa_de_control
             double temperaturaOcaso = temperaturaMaxima - 4;
             Dia dia = new Dia();
             DateTime horaAux = DateTime.Now;
+            dia.Fecha = diaEstimar;
             dia.HoraAmanecer = new DateTime(horaAux.Year, horaAux.Month, horaAux.Day, Convert.ToInt32(horaAmanecer), 0, 0);
             dia.HoraMaxTemperatura = new DateTime(horaAux.Year, horaAux.Month, horaAux.Day, Convert.ToInt32(horaTemMax), 0, 0);
             dia.HoraOcaso = new DateTime(horaAux.Year, horaAux.Month, horaAux.Day, Convert.ToInt32(horaOcaso), 0, 0);
@@ -63,6 +65,8 @@ namespace Floricultivo.Capa_de_control
             dia.TemperaturaOcaso = temperaturaOcaso;
             dia.TemperaturaSigDia = temperaturaAmanecer;
             diaServ.crearDia(dia);
+
+
         }
     }
 }
