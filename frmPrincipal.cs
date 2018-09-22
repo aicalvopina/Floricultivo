@@ -80,5 +80,21 @@ namespace Floricultivo
             Application.Exit();
         }
 
+        private void btnChart_Click(object sender, EventArgs e)
+        {
+            float x1 = 0.1;
+            float x2 = 0.1;
+            float x3 = 0.1;
+            float x4 = 0.1;
+            float x5 = 0.1;
+            float x6 = 0.1;
+            float x7 = 0.1;
+            float x8 = 0.1;
+            float x9 = 0.1;
+            float x10 = 0.1;
+            float x11 = 0.1;
+            float x12 = 0.1;
+        }
+
     }
 }
