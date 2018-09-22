@@ -15,7 +15,6 @@ C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.csprojResol
 C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.frmMain.resources
 C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.Properties.Resources.resources
 C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.csproj.GenerateResource.Cache
-C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.Form2.resources
 C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.frmInformacion.resources
 C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.frmConexion.resources
 C:\Users\Public\Documents\GitHub\Floricultivo\obj\Debug\Floricultivo.frmEditar.resources

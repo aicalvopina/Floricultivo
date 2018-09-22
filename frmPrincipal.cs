@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Floricultivo.Capa_de_control;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Floricultivo
 {
@@ -82,18 +83,50 @@ namespace Floricultivo
 
         private void btnChart_Click(object sender, EventArgs e)
         {
-            float x1 = 0.1;
-            float x2 = 0.1;
-            float x3 = 0.1;
-            float x4 = 0.1;
-            float x5 = 0.1;
-            float x6 = 0.1;
-            float x7 = 0.1;
-            float x8 = 0.1;
-            float x9 = 0.1;
-            float x10 = 0.1;
-            float x11 = 0.1;
-            float x12 = 0.1;
+            float x1 = 17;
+            float x2 = 25;
+            float x3 = 35;
+            float x4 = 38;
+            float x5 = 12;
+            float x6 = 19;
+            float x7 = 41;
+            float x8 = 7;
+            float x9 = 36;
+            float x10 = 28;
+            float x11 = 44;
+            float x12 = 22;
+
+            var chart = chart1.ChartAreas[0];
+            chart.AxisX.IntervalType = DateTimeIntervalType.Number;
+
+            chart.AxisX.LabelStyle.Format = "";
+            chart.AxisY.LabelStyle.Format = "";
+            chart.AxisY.LabelStyle.IsEndLabelVisible = true;
+
+            chart.AxisX.Minimum = 1;
+            chart.AxisX.Maximum = 12;
+            chart.AxisY.Minimum = 0;
+            chart.AxisY.Maximum = 50;
+            chart.AxisX.Interval = 1;
+            chart.AxisY.Interval = 5;
+
+            chart1.Series.Add("Hola");
+            chart1.Series["Hola"].ChartType = SeriesChartType.Line;
+            chart1.Series["Hola"].Color = Color.Red;
+            chart1.Series[0].IsVisibleInLegend = false;
+
+            chart1.Series["Hola"].Points.AddXY(1, x1);
+            chart1.Series["Hola"].Points.AddXY(2, x2);
+            chart1.Series["Hola"].Points.AddXY(3, x3);
+            chart1.Series["Hola"].Points.AddXY(4, x4);
+            chart1.Series["Hola"].Points.AddXY(5, x5);
+            chart1.Series["Hola"].Points.AddXY(6, x6);
+            chart1.Series["Hola"].Points.AddXY(7, x7);
+            chart1.Series["Hola"].Points.AddXY(8, x8);
+            chart1.Series["Hola"].Points.AddXY(9, x9);
+            chart1.Series["Hola"].Points.AddXY(10, x10);
+            chart1.Series["Hola"].Points.AddXY(11, x11);
+            chart1.Series["Hola"].Points.AddXY(12, x12);
         }
 
     }
