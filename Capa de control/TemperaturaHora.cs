@@ -21,8 +21,7 @@ namespace Floricultivo.Capa_de_control
         public TemperaturaHora(DateTime dia)
         {
             diaEstimar = service.obtenerPorFecha(dia);
-           
-            diaEstimar.TemperaturaAmanecer = diaEstimar.TemperaturaMaxima - (c * (diaEstimar.TemperaturaMaxima - diaEstimar.TemperaturaSigDia));
+            diaEstimar.TemperaturaOcaso = diaEstimar.TemperaturaMaxima - (c * (diaEstimar.TemperaturaMaxima - diaEstimar.TemperaturaSigDia));
             difTxTo = diaEstimar.TemperaturaMaxima - diaEstimar.TemperaturaOcaso;
             difTxTn = diaEstimar.TemperaturaMaxima - diaEstimar.TemperaturaAmanecer;
             difTpTo = (diaEstimar.TemperaturaSigDia - diaEstimar.TemperaturaAmanecer) / Math.Sqrt(Convert.ToDouble(diaEstimar.HoraSigDia.Hour) - Convert.ToDouble(diaEstimar.HoraAmanecer.Hour));   

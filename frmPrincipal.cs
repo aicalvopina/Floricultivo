@@ -64,6 +64,7 @@ namespace Floricultivo
             this.tmepHora.guardarTemperaturas(diasAux);
             this.gradosHora = this.dia.gradosHoraCalculo(diasAux);
 
+            this.dgvDatos.Rows.Clear();
             this.dgvDatos.ColumnCount = 2;
             this.dgvDatos.ColumnHeadersVisible = true;
             this.dgvDatos.Columns[0].Name = "FECHA(dd/mm/aaaa)";
