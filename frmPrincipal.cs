@@ -17,6 +17,7 @@ namespace Floricultivo
         frmInformacion form2 = new frmInformacion();
         GradoDia dia;
         TemperaturaHora tmepHora;
+        List<double> gradosHora;
         public frmMain()
         {
             InitializeComponent();
@@ -61,7 +62,7 @@ namespace Floricultivo
             dia.crearDia(horaAmanecer, temperaturaAmanecer, diasAux);
             this.tmepHora = new TemperaturaHora(diasAux);
             this.tmepHora.guardarTemperaturas(diasAux);
-            List<double> gradosHora = this.dia.gradosHoraCalculo(diasAux);
+            this.gradosHora = this.dia.gradosHoraCalculo(diasAux);
 
             this.dgvDatos.ColumnCount = 2;
             this.dgvDatos.ColumnHeadersVisible = true;
@@ -83,18 +84,22 @@ namespace Floricultivo
 
         private void btnChart_Click(object sender, EventArgs e)
         {
-            float x1 = 17;
-            float x2 = 25;
-            float x3 = 35;
-            float x4 = 38;
-            float x5 = 12;
-            float x6 = 19;
-            float x7 = 41;
-            float x8 = 7;
-            float x9 = 36;
-            float x10 = 28;
-            float x11 = 44;
-            float x12 = 22;
+            generarGrafico();
+        }
+        private void generarGrafico()
+        {
+            //float x1 = 17;
+            //float x2 = 25;
+            //float x3 = 35;
+            //float x4 = 38;
+            //float x5 = 12;
+            //float x6 = 19;
+            //float x7 = 41;
+            //float x8 = 7;
+            //float x9 = 36;
+            //float x10 = 28;
+            //float x11 = 44;
+            //float x12 = 22;
 
             var chart = chart1.ChartAreas[0];
             chart.AxisX.IntervalType = DateTimeIntervalType.Number;
@@ -103,31 +108,34 @@ namespace Floricultivo
             chart.AxisY.LabelStyle.Format = "";
             chart.AxisY.LabelStyle.IsEndLabelVisible = true;
 
-            chart.AxisX.Minimum = 1;
-            chart.AxisX.Maximum = 12;
+            chart.AxisX.Minimum = 0;
+            chart.AxisX.Maximum = 23;
             chart.AxisY.Minimum = 0;
-            chart.AxisY.Maximum = 50;
+            chart.AxisY.Maximum = 30;
             chart.AxisX.Interval = 1;
-            chart.AxisY.Interval = 5;
+            chart.AxisY.Interval = 3;
 
-            chart1.Series.Add("Hola");
-            chart1.Series["Hola"].ChartType = SeriesChartType.Line;
-            chart1.Series["Hola"].Color = Color.Red;
+            chart1.Series.Add("Variación de Temperatura");
+            chart1.Series["Variación de Temperatura"].ChartType = SeriesChartType.Line;
+            chart1.Series["Variación de Temperatura"].Color = Color.Red;
             chart1.Series[0].IsVisibleInLegend = false;
 
-            chart1.Series["Hola"].Points.AddXY(1, x1);
-            chart1.Series["Hola"].Points.AddXY(2, x2);
-            chart1.Series["Hola"].Points.AddXY(3, x3);
-            chart1.Series["Hola"].Points.AddXY(4, x4);
-            chart1.Series["Hola"].Points.AddXY(5, x5);
-            chart1.Series["Hola"].Points.AddXY(6, x6);
-            chart1.Series["Hola"].Points.AddXY(7, x7);
-            chart1.Series["Hola"].Points.AddXY(8, x8);
-            chart1.Series["Hola"].Points.AddXY(9, x9);
-            chart1.Series["Hola"].Points.AddXY(10, x10);
-            chart1.Series["Hola"].Points.AddXY(11, x11);
-            chart1.Series["Hola"].Points.AddXY(12, x12);
+            for (int i = 0; i < 24; i++)
+            {
+                chart1.Series["Variación de Temperatura"].Points.AddXY(i, gradosHora[i]);
+            }
+            //chart1.Series["Hola"].Points.AddXY(1, x1);
+            //chart1.Series["Hola"].Points.AddXY(2, x2);
+            //chart1.Series["Hola"].Points.AddXY(3, x3);
+            //chart1.Series["Hola"].Points.AddXY(4, x4);
+            //chart1.Series["Hola"].Points.AddXY(5, x5);
+            //chart1.Series["Hola"].Points.AddXY(6, x6);
+            //chart1.Series["Hola"].Points.AddXY(7, x7);
+            //chart1.Series["Hola"].Points.AddXY(8, x8);
+            //chart1.Series["Hola"].Points.AddXY(9, x9);
+            //chart1.Series["Hola"].Points.AddXY(10, x10);
+            //chart1.Series["Hola"].Points.AddXY(11, x11);
+            //chart1.Series["Hola"].Points.AddXY(12, x12);
         }
-
     }
 }

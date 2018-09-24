@@ -31,6 +31,10 @@ namespace Floricultivo.Capa_de_DB
                 this.builder.UserID = "floricultivo";
                 this.builder.Password = "Floricultivo112358.";
                 this.builder.Database = "floricultivo";
+                //this.builder.Server = "localhost";
+                //this.builder.UserID = "root";
+                //this.builder.Password = "18102011d.";
+                //this.builder.Database = "Temperaturaproyecto";
                 this.conexion = new MySqlConnection(builder.ToString());
                 this.conexion.Open();
             }
