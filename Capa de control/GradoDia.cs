@@ -40,7 +40,7 @@ namespace Floricultivo.Capa_de_control
         {
             tempHora = new List<Temperatura>();
             tempHora = serviceTemp.obtenerPorFecha(fecha);
-            for (int i = 0; i < tempHora.Count; i++ )
+            for (int i = 0; i < 24; i++ )
             {
                 this.gradosHora.Add(tempHora[i].TemperaturaGrados - this.temperaturaBase);
             }

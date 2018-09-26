@@ -229,7 +229,7 @@
             this.txtboxTempBase.Name = "txtboxTempBase";
             this.txtboxTempBase.Size = new System.Drawing.Size(100, 22);
             this.txtboxTempBase.TabIndex = 5;
-            this.txtboxTempBase.Text = "70";
+            this.txtboxTempBase.Text = "15";
             // 
             // label3
             // 
@@ -264,7 +264,6 @@
             this.txtboxTempAmanecer.Name = "txtboxTempAmanecer";
             this.txtboxTempAmanecer.Size = new System.Drawing.Size(100, 22);
             this.txtboxTempAmanecer.TabIndex = 1;
-            this.txtboxTempAmanecer.Text = "47";
             // 
             // txtboxHoraAmanecer
             // 
@@ -272,7 +271,6 @@
             this.txtboxHoraAmanecer.Name = "txtboxHoraAmanecer";
             this.txtboxHoraAmanecer.Size = new System.Drawing.Size(100, 22);
             this.txtboxHoraAmanecer.TabIndex = 0;
-            this.txtboxHoraAmanecer.Text = "6";
             // 
             // dtpDate
             // 

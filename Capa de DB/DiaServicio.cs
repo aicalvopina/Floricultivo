@@ -86,7 +86,7 @@ namespace Floricultivo.Capa_de_DB
             {
                 Dia dia = new Dia();
                 conn.crearConexion();
-                query.CommandText = "select * from floricultivo.dia where fecha = '" + fecha.ToString("yyyy-MM-dd H:mm:ss") + "';";
+                query.CommandText = "select * from floricultivo.dia where fecha = '" + fecha.ToString("yyyy-MM-dd") + "';";
                 query.Connection = conn.Conexion;
                 consultar = query.ExecuteReader();
                 while (consultar.Read())
@@ -100,6 +100,37 @@ namespace Floricultivo.Capa_de_DB
                     dia.TemperaturaAmanecer = consultar.GetDouble("temperatura_amanecer");
                     dia.TemperaturaMaxima = consultar.GetDouble("temperatura_maxima");
                     dia.TemperaturaOcaso = consultar.GetDouble("temperatura_ocaso");
+                    dia.TemperaturaSigDia = consultar.GetDouble("temperatura_sig_dia");
+                }
+                conn.cerrarConexion();
+                return dia;
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+        public Dia obtenerPorFechaSinOcaso(DateTime fecha)
+        {
+            try
+            {
+                Dia dia = new Dia();
+                conn.crearConexion();
+                query.CommandText = "select * from floricultivo.dia where fecha = '" + fecha.ToString("yyyy-MM-dd") + "';";
+                query.Connection = conn.Conexion;
+                consultar = query.ExecuteReader();
+                while (consultar.Read())
+                {
+                    dia.CodDia = consultar.GetInt32("cod_dia");
+                    dia.Fecha = consultar.GetDateTime("fecha");
+                    dia.HoraAmanecer = consultar.GetDateTime("hora_amanecer");
+                    dia.HoraMaxTemperatura = consultar.GetDateTime("hora_max_temperatura");
+                    dia.HoraOcaso = consultar.GetDateTime("hora_ocaso");
+                    dia.HoraSigDia = consultar.GetDateTime("hora_sig_dia");
+                    dia.TemperaturaAmanecer = consultar.GetDouble("temperatura_amanecer");
+                    dia.TemperaturaMaxima = consultar.GetDouble("temperatura_maxima");
+                    dia.TemperaturaOcaso = 0;
                     dia.TemperaturaSigDia = consultar.GetDouble("temperatura_sig_dia");
                 }
                 conn.cerrarConexion();
@@ -152,8 +183,8 @@ namespace Floricultivo.Capa_de_DB
                 conn.crearConexion();
                 query.CommandText = "update floricultivo.dia set fecha = '" + dia.Fecha.ToString("yyyy-MM-dd H:mm:ss") + "', hora_amanecer = '" + dia.HoraAmanecer.ToString("yyyy-MM-dd H:mm:ss")
                     + "', hora_max_temperatura = '" + dia.HoraMaxTemperatura.ToString("yyyy-MM-dd H:mm:ss") + "', hora_ocaso = '" + dia.HoraOcaso.ToString("yyyy-MM-dd H:mm:ss")
-                    + "', hora_sig_dia = '" + dia.HoraSigDia.ToString("yyyy-MM-dd H:mm:ss") + "', temperatura_amanecer = " + dia.TemperaturaAmanecer + ", temperatura_maxima = "
-                    + dia.TemperaturaMaxima + ", temperatura_ocaso = " + dia.TemperaturaOcaso + ", temperatura_sig_dia = " + dia.TemperaturaSigDia + " where cod_dia = "
+                    + "', hora_sig_dia = '" + dia.HoraSigDia.ToString("yyyy-MM-dd H:mm:ss") + "', temperatura_amanecer = '" + dia.TemperaturaAmanecer + "', temperatura_maxima = '"
+                    + dia.TemperaturaMaxima + "', temperatura_ocaso = '" + dia.TemperaturaOcaso + "', temperatura_sig_dia = '" + dia.TemperaturaSigDia + "' where cod_dia = "
                     + dia.CodDia + ";";
                 query.Connection = conn.Conexion;
                 query.ExecuteReader();

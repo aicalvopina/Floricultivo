@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Floricultivo.Capa_de_control;
+using Floricultivo.Capa_de_DB;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Floricultivo
@@ -16,6 +17,7 @@ namespace Floricultivo
     {
         frmInformacion form2 = new frmInformacion();
         GradoDia dia;
+        DiaServicio servDia =  new DiaServicio();
         TemperaturaHora tmepHora;
         List<double> gradosHora;
         public frmMain()
@@ -54,12 +56,34 @@ namespace Floricultivo
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            double horaAmanecer = Convert.ToDouble(txtboxHoraAmanecer.Text);
-            double temperaturaAmanecer = Convert.ToDouble(txtboxTempAmanecer.Text);
-            double temperaturaMaxima = temperaturaAmanecer + 21;
-            DateTime diasAux = new DateTime(dtpDate.Value.Year, dtpDate.Value.Month, dtpDate.Value.Day);
-            dia = new GradoDia(temperaturaMaxima, temperaturaAmanecer, Convert.ToDouble(txtboxTempBase.Text));
-            dia.crearDia(horaAmanecer, temperaturaAmanecer, diasAux);
+            DateTime diasAux = new DateTime(2017, dtpDate.Value.Month, dtpDate.Value.Day);
+            Dia diaBase = servDia.obtenerPorFechaSinOcaso(diasAux);
+            if (diaBase == null)
+            {
+                try
+                {
+                    double horaAmanecer = Convert.ToDouble(txtboxHoraAmanecer.Text);
+                    double temperaturaAmanecer = Convert.ToDouble(txtboxTempAmanecer.Text);
+                    double temperaturaMaxima = temperaturaAmanecer + 21;
+                    dia = new GradoDia(temperaturaMaxima, temperaturaAmanecer, Convert.ToDouble(txtboxTempBase.Text));
+                    dia.crearDia(horaAmanecer, temperaturaAmanecer, diasAux);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hubo un problema con los datos");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Dia encontrado en base de datos");
+                txtboxHoraAmanecer.Text = diaBase.HoraAmanecer.ToString();
+                txtboxTempAmanecer.Text = diaBase.TemperaturaAmanecer.ToString();
+                txtboxHoraAmanecer.Enabled = false;
+                txtboxTempAmanecer.Enabled = false;
+                dia = new GradoDia(diaBase.TemperaturaMaxima, diaBase.TemperaturaAmanecer, Convert.ToDouble(txtboxTempBase.Text));
+                diaBase.TemperaturaOcaso = diaBase.TemperaturaMaxima - (0.39 * (diaBase.TemperaturaMaxima - diaBase.TemperaturaSigDia));
+                servDia.editarDia(diaBase);
+            }
             this.tmepHora = new TemperaturaHora(diasAux);
             this.tmepHora.guardarTemperaturas(diasAux);
             this.gradosHora = this.dia.gradosHoraCalculo(diasAux);
