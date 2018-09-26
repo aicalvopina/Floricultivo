@@ -20,6 +20,7 @@ namespace Floricultivo
         List<double> gradosHora;
         List<String> graficos;
         int numGraficos;
+        int numDatos;
         public frmMain()
         {
             InitializeComponent();
@@ -128,9 +129,9 @@ namespace Floricultivo
                 chart1.Series[graficos[numGraficos]].Color = Color.Red;
                 chart1.Series[0].IsVisibleInLegend = false;
 
-                for (int i = 0; i < 24; i++)
+                for (numDatos = 0; numDatos < 24; numDatos++)
                 {
-                    chart1.Series[graficos[numGraficos]].Points.AddXY(i, gradosHora[i]);
+                    chart1.Series[graficos[numGraficos]].Points.AddXY(numDatos, gradosHora[numDatos]);
                 }
             }
             else
@@ -141,11 +142,12 @@ namespace Floricultivo
                 chart1.Series[graficos[numGraficos]].Color = Color.Red;
                 chart1.Series[0].IsVisibleInLegend = false;
 
-                for (int i = 0; i < 24; i++)
+                for (numDatos = numDatos; numDatos < 24; numDatos++)
                 {
-                    chart1.Series[graficos[numGraficos]].Points.AddXY(i, gradosHora[i]);
+                    chart1.Series[graficos[numGraficos]].Points.AddXY(numDatos, gradosHora[numDatos]);
                 }
             }
+            numDatos = numDatos + 24;
             numGraficos++;
             //chart1.Series["Hola"].Points.AddXY(1, x1);
             //chart1.Series["Hola"].Points.AddXY(2, x2);
