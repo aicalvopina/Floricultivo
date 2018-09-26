@@ -27,7 +27,7 @@ namespace Floricultivo.Capa_de_DB
         {
             try
             {
-                this.builder.Server = "192.168.110.14";
+                this.builder.Server = "localhost";
                 this.builder.UserID = "floricultivo";
                 this.builder.Password = "Floricultivo112358.";
                 this.builder.Database = "floricultivo";
