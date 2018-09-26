@@ -18,10 +18,15 @@ namespace Floricultivo
         GradoDia dia;
         TemperaturaHora tmepHora;
         List<double> gradosHora;
+        List<String> graficos;
+        int numGraficos;
         public frmMain()
         {
             InitializeComponent();
-
+            graficos = new List<String>();
+            numGraficos = 0;
+            //graficos.Add("Variación de Temperatura " + (numGraficos + 1).ToString());
+            //MessageBox.Show(graficos[0]);
         }
 
         private void mOptionInformation_Click(object sender, EventArgs e)
@@ -101,30 +106,47 @@ namespace Floricultivo
             //float x10 = 28;
             //float x11 = 44;
             //float x12 = 22;
-
-            var chart = chart1.ChartAreas[0];
-            chart.AxisX.IntervalType = DateTimeIntervalType.Number;
-
-            chart.AxisX.LabelStyle.Format = "";
-            chart.AxisY.LabelStyle.Format = "";
-            chart.AxisY.LabelStyle.IsEndLabelVisible = true;
-
-            chart.AxisX.Minimum = 0;
-            chart.AxisX.Maximum = 23;
-            chart.AxisY.Minimum = 0;
-            chart.AxisY.Maximum = 30;
-            chart.AxisX.Interval = 1;
-            chart.AxisY.Interval = 3;
-
-            chart1.Series.Add("Variación de Temperatura");
-            chart1.Series["Variación de Temperatura"].ChartType = SeriesChartType.Line;
-            chart1.Series["Variación de Temperatura"].Color = Color.Red;
-            chart1.Series[0].IsVisibleInLegend = false;
-
-            for (int i = 0; i < 24; i++)
+            if (numGraficos == 0)
             {
-                chart1.Series["Variación de Temperatura"].Points.AddXY(i, gradosHora[i]);
+                var chart = chart1.ChartAreas[0];
+                chart.AxisX.IntervalType = DateTimeIntervalType.Number;
+
+                chart.AxisX.LabelStyle.Format = "";
+                chart.AxisY.LabelStyle.Format = "";
+                chart.AxisY.LabelStyle.IsEndLabelVisible = true;
+
+                chart.AxisX.Minimum = 0;
+                chart.AxisX.Maximum = 23;
+                chart.AxisY.Minimum = 0;
+                chart.AxisY.Maximum = 30;
+                chart.AxisX.Interval = 1;
+                chart.AxisY.Interval = 3;
+
+                graficos.Add("Variación de Temperatura " + (numGraficos + 1).ToString());
+                chart1.Series.Add(graficos[numGraficos]);
+                chart1.Series[graficos[numGraficos]].ChartType = SeriesChartType.Line;
+                chart1.Series[graficos[numGraficos]].Color = Color.Red;
+                chart1.Series[0].IsVisibleInLegend = false;
+
+                for (int i = 0; i < 24; i++)
+                {
+                    chart1.Series[graficos[numGraficos]].Points.AddXY(i, gradosHora[i]);
+                }
             }
+            else
+            {
+                graficos.Add("Variación de Temperatura " + (numGraficos + 1).ToString());
+                chart1.Series.Add(graficos[numGraficos]);
+                chart1.Series[graficos[numGraficos]].ChartType = SeriesChartType.Line;
+                chart1.Series[graficos[numGraficos]].Color = Color.Red;
+                chart1.Series[0].IsVisibleInLegend = false;
+
+                for (int i = 0; i < 24; i++)
+                {
+                    chart1.Series[graficos[numGraficos]].Points.AddXY(i, gradosHora[i]);
+                }
+            }
+            numGraficos++;
             //chart1.Series["Hola"].Points.AddXY(1, x1);
             //chart1.Series["Hola"].Points.AddXY(2, x2);
             //chart1.Series["Hola"].Points.AddXY(3, x3);
