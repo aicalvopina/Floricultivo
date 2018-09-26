@@ -142,9 +142,9 @@ namespace Floricultivo
                 chart1.Series[graficos[numGraficos]].Color = Color.Red;
                 chart1.Series[0].IsVisibleInLegend = false;
 
-                for (numDatos = numDatos; numDatos < 24; numDatos++)
+                for (int i = numDatos; i < 24; i++)
                 {
-                    chart1.Series[graficos[numGraficos]].Points.AddXY(numDatos, gradosHora[numDatos]);
+                    chart1.Series[graficos[numGraficos]].Points.AddXY(i, gradosHora[i]);
                 }
             }
             numDatos = numDatos + 24;
