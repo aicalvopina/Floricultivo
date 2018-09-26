@@ -115,22 +115,17 @@ namespace Floricultivo
 
         private void btnChart_Click(object sender, EventArgs e)
         {
-            generarGrafico();
+            try
+            {
+                generarGrafico();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Dificultades tecnicas");
+            }
         }
         private void generarGrafico()
         {
-            //float x1 = 17;
-            //float x2 = 25;
-            //float x3 = 35;
-            //float x4 = 38;
-            //float x5 = 12;
-            //float x6 = 19;
-            //float x7 = 41;
-            //float x8 = 7;
-            //float x9 = 36;
-            //float x10 = 28;
-            //float x11 = 44;
-            //float x12 = 22;
             if (numGraficos == 0)
             {
                 var chart = chart1.ChartAreas[0];
@@ -163,28 +158,16 @@ namespace Floricultivo
                 graficos.Add("Variación de Temperatura " + (numGraficos + 1).ToString());
                 chart1.Series.Add(graficos[numGraficos]);
                 chart1.Series[graficos[numGraficos]].ChartType = SeriesChartType.Line;
-                chart1.Series[graficos[numGraficos]].Color = Color.Red;
+                chart1.Series[graficos[numGraficos]].Color = Color.Blue;
                 chart1.Series[0].IsVisibleInLegend = false;
 
-                for (int i = numDatos; i < 24; i++)
+                for (int i = 0; i < 24; i++)
                 {
-                    chart1.Series[graficos[numGraficos]].Points.AddXY(i, gradosHora[i]);
+                    chart1.Series[graficos[numGraficos]].Points.AddXY(i, gradosHora[numDatos+i]);
                 }
+                numDatos = numDatos + 24;
             }
-            numDatos = numDatos + 24;
             numGraficos++;
-            //chart1.Series["Hola"].Points.AddXY(1, x1);
-            //chart1.Series["Hola"].Points.AddXY(2, x2);
-            //chart1.Series["Hola"].Points.AddXY(3, x3);
-            //chart1.Series["Hola"].Points.AddXY(4, x4);
-            //chart1.Series["Hola"].Points.AddXY(5, x5);
-            //chart1.Series["Hola"].Points.AddXY(6, x6);
-            //chart1.Series["Hola"].Points.AddXY(7, x7);
-            //chart1.Series["Hola"].Points.AddXY(8, x8);
-            //chart1.Series["Hola"].Points.AddXY(9, x9);
-            //chart1.Series["Hola"].Points.AddXY(10, x10);
-            //chart1.Series["Hola"].Points.AddXY(11, x11);
-            //chart1.Series["Hola"].Points.AddXY(12, x12);
         }
     }
 }
